@@ -20,8 +20,8 @@ app.use(cors(corsOptions));
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "sornwisetthanyapat@gmail.com",
-    pass: "lnpm bjdx oklg zsoz",
+    user: "woottikarnhon@pim.ac.th",
+    pass: "dqrhbngwtvqqljwk",
   },
 });
 
@@ -44,7 +44,7 @@ app.post("/senttext", async (req, res) => {
     const imageBuffer = Buffer.from(base64Image, "base64");
 
     await transporter.sendMail({
-      from: "sornwisetthanyapat@gmail.com",
+      from: "woottikarnhon@pim.ac.th",
       to: email,
       subject: "ข้อความจากระบบพร้อมรูปภาพ",
       text: text || "ภาพที่คุณถ่ายไว้",
