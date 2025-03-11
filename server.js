@@ -18,12 +18,18 @@ app.use(cors(corsOptions));
 
 // Transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.office365.com",
+  port: 587,
+  secure: false, // ใช้ TLS แทน SSL
   auth: {
     user: "woottikarnhon@pim.ac.th",
-    pass: "dqrhbngwtvqqljwk",
+    pass: "dqrhbngwtvqqljwk" // หาก MFA เปิดอยู่ ควรใช้ App Password
   },
+  tls: {
+    ciphers: "SSLv3"
+  }
 });
+
 
 // Route GET พร้อม Log
 app.get("/senttext", async (req, res) => {
